@@ -1,0 +1,14 @@
+{
+  "name": "nab-maze-solver",
+  "version": "1.0.0",
+  "main": "solve-maze.js",
+  "author": "Christian Schulze<christian.schulze@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "jest": "^24.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
