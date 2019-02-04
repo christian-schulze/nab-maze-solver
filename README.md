@@ -31,3 +31,12 @@ From a console, run:
 cd <project-folder>
 node ./solve-maze.js maze.txt
 ```
+
+## Run tests
+
+From a console, run:
+
+```bash
+cd <project-folder>
+yarn test
+```
