@@ -44,7 +44,7 @@ function isPositionOfType(maze, positonType, position) {
   );
 }
 
-function leftOfCurrentDirection(direction) {
+function leftOfCurrentDirection(direction = "WEST") {
   return {
     WEST: "SOUTH",
     NORTH: "WEST",
@@ -92,15 +92,7 @@ function* generatePositions(currentPosition) {
 }
 
 function findNextPosition(maze, currentPosition) {
-  let positions = null;
-
-  if (!currentPosition.direction) {
-    positions = new Map([
-      ...generatePositions({ ...currentPosition, direction: "WEST" })
-    ]);
-  } else {
-    positions = new Map([...generatePositions(currentPosition)]);
-  }
+  const positions = new Map([...generatePositions(currentPosition)]);
 
   for (let [direction, position] of positions) {
     if (
