@@ -126,7 +126,6 @@ function solveMaze(maze, maxIterations = 1000) {
   const startPosition = findPositionByType(maze, POSITION_TYPE.START);
   const endPosition = findPositionByType(maze, POSITION_TYPE.END);
   const positionHistory = [startPosition];
-  let currentPosition = [startPosition];
 
   // iterate `maxIterations` times in case of infinite loop bugs
   for (let _ of Array(maxIterations).fill("")) {
