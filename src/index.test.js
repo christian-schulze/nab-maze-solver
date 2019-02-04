@@ -54,6 +54,12 @@ describe("index", () => {
         y: 2
       });
     });
+
+    it("throws an exception if position is not found", () => {
+      expect(() => findPositionByType(maze, "X")).toThrowError(
+        "Position type X not found."
+      );
+    });
   });
 
   describe("findNextPosition()", () => {
@@ -140,6 +146,17 @@ describe("index", () => {
           y: 1,
           direction: "WEST"
         });
+      });
+    });
+
+    describe("When no position can be found", () => {
+      it("throws an error", () => {
+        const maze = [["S", "#"], ["#", "F"]];
+        const currentPosition = { x: 0, y: 0 };
+
+        expect(() => findNextPosition(maze, currentPosition)).toThrowError(
+          "Could not find next position."
+        );
       });
     });
   });
