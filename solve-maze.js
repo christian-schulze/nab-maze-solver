@@ -1,4 +1,4 @@
-const { loadMaze, POSITION_TYPE, renderMaze, solveMaze } = require("./src");
+const { loadMaze, renderMaze, solveMaze } = require("./src");
 
 const args = process.argv.splice(process.execArgv.length + 2);
 

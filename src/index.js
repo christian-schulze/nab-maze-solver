@@ -54,30 +54,17 @@ function leftOfCurrentDirection(direction = "WEST") {
 }
 
 function* generatePositions(currentPosition) {
-  const directions = ["WEST", "NORTH", "EAST", "SOUTH"];
   const positions = [
-    [
-      "WEST",
-      { x: currentPosition.x - 1, y: currentPosition.y, direction: "WEST" }
-    ],
-    [
-      "NORTH",
-      { x: currentPosition.x, y: currentPosition.y - 1, direction: "NORTH" }
-    ],
-    [
-      "EAST",
-      { x: currentPosition.x + 1, y: currentPosition.y, direction: "EAST" }
-    ],
-    [
-      "SOUTH",
-      { x: currentPosition.x, y: currentPosition.y + 1, direction: "SOUTH" }
-    ]
+    { x: currentPosition.x - 1, y: currentPosition.y, direction: "WEST" },
+    { x: currentPosition.x, y: currentPosition.y - 1, direction: "NORTH" },
+    { x: currentPosition.x + 1, y: currentPosition.y, direction: "EAST" },
+    { x: currentPosition.x, y: currentPosition.y + 1, direction: "SOUTH" }
   ];
 
   const startDirection = leftOfCurrentDirection(currentPosition.direction);
 
-  let currentIndex = directions.findIndex(
-    direction => direction === startDirection
+  let currentIndex = positions.findIndex(
+    position => position.direction === startDirection
   );
 
   for (let _ of [0, 1, 2, 3]) {
@@ -92,9 +79,7 @@ function* generatePositions(currentPosition) {
 }
 
 function findNextPosition(maze, currentPosition) {
-  const positions = new Map([...generatePositions(currentPosition)]);
-
-  for (let [direction, position] of positions) {
+  for (let position of generatePositions(currentPosition)) {
     if (
       isPositionOfType(maze, POSITION_TYPE.SPACE, position) ||
       isPositionOfType(maze, POSITION_TYPE.END, position)
